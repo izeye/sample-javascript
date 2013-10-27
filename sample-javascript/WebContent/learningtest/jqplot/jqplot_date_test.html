@@ -1,0 +1,40 @@
+<html>
+<head>
+<title>jqPlot Test</title>
+
+<script type="text/javascript" src="../../libraries/jquery/2.0.3/jquery-2.0.3.js"></script>
+<script type="text/javascript" src="../../libraries/jqplot/1.0.8r1250/jquery.jqplot.js"></script>
+<script type="text/javascript" src="../../libraries/jqplot/1.0.8r1250/plugins/jqplot.dateAxisRenderer.js"></script>
+
+<link rel="stylesheet" type="text/css" href="../../libraries/jqplot/1.0.8r1250/jquery.jqplot.css" />
+</head>
+<body>
+<script type="text/javascript">
+$(document).ready(function () {
+	var line1 = [['2008-09-30 4:00PM', 4], ['2008-10-30 4:00PM', 6.5], ['2008-11-30 4:00PM', 5.7], ['2008-12-30 4:00PM', 9], ['2009-01-30 4:00PM', 8.2]];
+	var plot1 = $.jqplot('chart1', [line1], {
+		title: 'Default Date Axis',
+		axes: {xaxis: {renderer: $.jqplot.DateAxisRenderer}},
+		series: [{lineWidth: 4, markerOptions: {style: 'sqaure'}}]
+	});
+	
+	var line2 = [['2008-06-30 8:00AM', 4], ['2008-07-30 8:00AM', 6.5], ['2008-08-30 8:00AM', 5.7], ['2008-09-30 8:00AM', 9], ['2008-10-30 8:00AM', 8.2]];
+	var plot2 = $.jqplot('chart2', [line2], {
+		title: 'Customized Date Axis',
+		axes: {
+			xaxis: {
+				renderer: $.jqplot.DateAxisRenderer,
+				tickOptions: {formatString: '%b %#d, %y'},
+				min: 'May 30, 2008',
+				tickInterval: '1 month'
+			}
+		},
+		series: [{lineWidth: 4, markerOptions: {style: 'sqaure'}}]
+	});
+});
+</script>
+
+<div id="chart1" style="height:400px; width:600px; "></div>
+<div id="chart2" style="height:400px; width:600px; "></div>
+</body>
+</html>
