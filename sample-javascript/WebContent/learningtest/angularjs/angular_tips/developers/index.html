@@ -1,0 +1,37 @@
+<html>
+	<head>
+		<script type="text/javascript" src="../../../../libraries/angularjs/1.0.8/angular.min.js"></script>
+		<script type="text/javascript" src="app.js"></script>
+	</head>
+	<body ng-app="app" ng-controller="MainCtrl">
+		<ul>
+			<li ng-repeat="person in developers">
+				{{person.name}} from {{person.country}}
+			</li>
+		</ul>
+		<ul>
+			<li ng-repeat="person in developers | orderBy:'name'">
+				{{person.name}} from {{person.country}}
+			</li>
+		</ul>
+		<ul>
+			<li ng-repeat="person in developers | orderBy:'-name'">
+				{{person.name}} from {{person.country}}
+			</li>
+		</ul>
+		
+		Search: <input ng-model="search" type="text" />
+		<ul>
+			<li ng-repeat="person in developers | filter:search">
+				{{person.name}} from {{person.country}}
+			</li>
+		</ul>
+		
+		Search: <input ng-model="search2.name" type="text" />
+		<ul>
+			<li ng-repeat="person in developers | filter:search2">
+				{{person.name}} from {{person.country}}
+			</li>
+		</ul>
+	</body>
+</html>
