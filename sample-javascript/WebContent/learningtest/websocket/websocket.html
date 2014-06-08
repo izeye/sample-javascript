@@ -1,0 +1,25 @@
+<html>
+<body>
+<script type="text/javascript">
+if ('WebSocket' in window) {
+	//var oSocket = new WebSocket("ws://localhost:8025/websockets/game");
+	var oSocket = new WebSocket("ws://localhost:18080/sample-java/websocket/chat");
+	
+	oSocket.onmessage = function (e) {
+		console.log(e.data);
+	};
+	
+	oSocket.onopen = function (e) {
+		console.log("open");
+		
+		oSocket.send("start");
+		//oSocket.close();
+	};
+	
+	oSocket.onclose = function (e) {
+		console.log("close");
+	};
+}
+</script>
+</body>
+</html>

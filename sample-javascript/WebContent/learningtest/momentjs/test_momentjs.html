@@ -1,0 +1,19 @@
+<html>
+<head>
+<title>Moment.js Test</title>
+<script type="text/javascript" src="../../libraries/momentjs/2.5.1/moment-with-langs.min.js"></script>
+</head>
+<body>
+<script type="text/javascript">
+var time = moment();
+console.log(time);
+
+var timestampInSeconds = time.unix();
+console.log(timestampInSeconds);
+
+var timestampInMillis = new Date().getTime();
+console.log(timestampInMillis);
+console.log(moment(timestampInMillis));
+</script>
+</body>
+</html>
